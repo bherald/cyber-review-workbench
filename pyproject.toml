@@ -1,0 +1,6 @@
+[project]
+name = "cyber-review-workbench"
+version = "0.1.0"
+description = "Local synthetic security-check evidence, scoped action receipts, and human review boundaries"
+requires-python = ">=3.11"
+license = {text = "MIT"}

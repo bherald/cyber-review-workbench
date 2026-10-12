@@ -1,0 +1,263 @@
+{
+  "coverage": {
+    "anonymous_denial": 1,
+    "header_presence": 4
+  },
+  "receipts": [
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "path": "/candidate/headers"
+          },
+          "name": "observe_local_fixture"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "complete": true,
+            "duration_ms": 1,
+            "findings_status": "operator_review_required",
+            "http_status": 200,
+            "path": "/candidate/headers",
+            "redirect_followed": false,
+            "redirect_observed": false,
+            "request_credentials": false,
+            "response_body_retained": false,
+            "schema": "cyber-review.observation.v1",
+            "security_headers_present": {
+              "content-security-policy": true,
+              "referrer-policy": true,
+              "x-content-type-options": true
+            }
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    },
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "path": "/candidate/restricted"
+          },
+          "name": "observe_local_fixture"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "complete": true,
+            "duration_ms": 1,
+            "findings_status": "operator_review_required",
+            "http_status": 403,
+            "path": "/candidate/restricted",
+            "redirect_followed": false,
+            "redirect_observed": false,
+            "request_credentials": false,
+            "response_body_retained": false,
+            "schema": "cyber-review.observation.v1",
+            "security_headers_present": {
+              "content-security-policy": true,
+              "referrer-policy": true,
+              "x-content-type-options": true
+            }
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    },
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "path": "/clean_control/headers"
+          },
+          "name": "observe_local_fixture"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "complete": true,
+            "duration_ms": 1,
+            "findings_status": "operator_review_required",
+            "http_status": 200,
+            "path": "/clean_control/headers",
+            "redirect_followed": false,
+            "redirect_observed": false,
+            "request_credentials": false,
+            "response_body_retained": false,
+            "schema": "cyber-review.observation.v1",
+            "security_headers_present": {
+              "content-security-policy": true,
+              "referrer-policy": true,
+              "x-content-type-options": true
+            }
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    },
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "path": "/clean_control/restricted"
+          },
+          "name": "observe_local_fixture"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "complete": true,
+            "duration_ms": 1,
+            "findings_status": "operator_review_required",
+            "http_status": 403,
+            "path": "/clean_control/restricted",
+            "redirect_followed": false,
+            "redirect_observed": false,
+            "request_credentials": false,
+            "response_body_retained": false,
+            "schema": "cyber-review.observation.v1",
+            "security_headers_present": {
+              "content-security-policy": true,
+              "referrer-policy": true,
+              "x-content-type-options": true
+            }
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    },
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "case_id": "anonymous_denial"
+          },
+          "name": "retest_candidate"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "case_id": "anonymous_denial",
+            "clean_holdout": {
+              "case_id": "anonymous_denial",
+              "coverage": 1,
+              "failed_checks": [],
+              "source_sha256": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f",
+              "status": "complete_clean"
+            },
+            "coverage": 1,
+            "failed_checks": [],
+            "source_sha256": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce",
+            "status": "complete_clean"
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    },
+    {
+      "document": {
+        "action": {
+          "arguments": {
+            "case_id": "header_presence"
+          },
+          "name": "retest_candidate"
+        },
+        "outcome": "succeeded",
+        "result": {
+          "evidence": {
+            "case_id": "header_presence",
+            "clean_holdout": {
+              "case_id": "header_presence",
+              "coverage": 4,
+              "failed_checks": [],
+              "source_sha256": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f",
+              "status": "complete_clean"
+            },
+            "coverage": 4,
+            "failed_checks": [],
+            "source_sha256": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce",
+            "status": "complete_clean"
+          },
+          "success": true
+        },
+        "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+      },
+      "state": "completed"
+    }
+  ],
+  "report": {
+    "error": null,
+    "results": {
+      "candidate_hashes": {
+        "anonymous_denial": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce",
+        "header_presence": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce"
+      },
+      "clean_control_hashes": {
+        "anonymous_denial": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f",
+        "header_presence": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f"
+      },
+      "retests": {
+        "anonymous_denial": {
+          "case_id": "anonymous_denial",
+          "clean_holdout": {
+            "case_id": "anonymous_denial",
+            "coverage": 1,
+            "failed_checks": [],
+            "source_sha256": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f",
+            "status": "complete_clean"
+          },
+          "coverage": 1,
+          "failed_checks": [],
+          "source_sha256": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce",
+          "status": "complete_clean"
+        },
+        "header_presence": {
+          "case_id": "header_presence",
+          "clean_holdout": {
+            "case_id": "header_presence",
+            "coverage": 4,
+            "failed_checks": [],
+            "source_sha256": "c00f884596fad1009dc9be7190a089d3d860261c8feec8b98ab2e125cf62170f",
+            "status": "complete_clean"
+          },
+          "coverage": 4,
+          "failed_checks": [],
+          "source_sha256": "a94078d2892c65b1bb0f7b5615fbf55dbab9aa5579c0fea6572eacbaa490f2ce",
+          "status": "complete_clean"
+        }
+      }
+    },
+    "schema": "cyber-review.report.v1",
+    "scope_sha256": "4e05fb784b021c626cd98507dc4810ae907f9d320b8646660cd3085ce07639e8"
+  },
+  "schema": "cyber-review.bundle.v1",
+  "summary": {
+    "completed_cases": [
+      "anonymous_denial",
+      "header_presence"
+    ],
+    "expected_cases": [
+      "anonymous_denial",
+      "header_presence"
+    ],
+    "model_commentary_authoritative": false,
+    "operator_closed": false,
+    "problems": [],
+    "schema": "cyber-review.summary.v1",
+    "security_certification": false,
+    "status": "recorded_synthetic_checks_passed",
+    "text": "2 synthetic cases passed recorded candidate and clean-control checks. Human review remains open."
+  }
+}

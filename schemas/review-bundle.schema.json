@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/cyber-review/review-bundle.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "report",
+    "receipts",
+    "coverage",
+    "summary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cyber-review.bundle.v1"
+    },
+    "report": {
+      "type": "object",
+      "required": [
+        "schema",
+        "error",
+        "results",
+        "scope_sha256"
+      ],
+      "properties": {
+        "schema": {
+          "const": "cyber-review.report.v1"
+        },
+        "error": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "results": {
+          "type": "object",
+          "required": [
+            "candidate_hashes",
+            "retests",
+            "clean_control_hashes"
+          ],
+          "properties": {
+            "candidate_hashes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "retests": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "required": [
+                  "case_id",
+                  "status",
+                  "coverage",
+                  "failed_checks",
+                  "source_sha256",
+                  "clean_holdout"
+                ],
+                "properties": {
+                  "case_id": {
+                    "type": "string",
+                    "enum": [
+                      "header_presence",
+                      "anonymous_denial"
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "complete_clean",
+                      "checks_failed"
+                    ]
+                  },
+                  "coverage": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "failed_checks": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "source_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "clean_holdout": {
+                    "type": "object",
+                    "required": [
+                      "case_id",
+                      "status",
+                      "coverage",
+                      "failed_checks",
+                      "source_sha256"
+                    ],
+                    "properties": {
+                      "case_id": {
+                        "type": "string",
+                        "enum": [
+                          "header_presence",
+                          "anonymous_denial"
+                        ]
+                      },
+                      "status": {
+                        "enum": [
+                          "complete_clean",
+                          "checks_failed"
+                        ]
+                      },
+                      "coverage": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "failed_checks": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "source_sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "clean_control_hashes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "scope_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "state",
+          "document"
+        ],
+        "properties": {
+          "state": {
+            "enum": [
+              "started",
+              "completed",
+              "outcome_unknown"
+            ]
+          },
+          "document": {
+            "type": "object",
+            "required": [
+              "action",
+              "scope_sha256"
+            ],
+            "properties": {
+              "action": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "arguments"
+                ],
+                "properties": {
+                  "name": {
+                    "enum": [
+                      "observe_local_fixture",
+                      "retest_candidate"
+                    ]
+                  },
+                  "arguments": {
+                    "type": "object"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "scope_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "outcome": {
+                "enum": [
+                  "succeeded",
+                  "review_required"
+                ]
+              },
+              "result": {
+                "type": "object",
+                "required": [
+                  "success",
+                  "evidence"
+                ],
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "evidence": {
+                    "type": "object"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "schema",
+        "status",
+        "text",
+        "completed_cases",
+        "expected_cases",
+        "problems",
+        "operator_closed",
+        "security_certification",
+        "model_commentary_authoritative"
+      ],
+      "properties": {
+        "schema": {
+          "const": "cyber-review.summary.v1"
+        },
+        "status": {
+          "enum": [
+            "recorded_synthetic_checks_passed",
+            "review_incomplete_evidence"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "completed_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "header_presence",
+              "anonymous_denial"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "expected_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "header_presence",
+              "anonymous_denial"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "problems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operator_closed": {
+          "const": false
+        },
+        "security_certification": {
+          "const": false
+        },
+        "model_commentary_authoritative": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

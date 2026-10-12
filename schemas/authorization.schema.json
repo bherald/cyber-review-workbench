@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/cyber-review/authorization.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "scope_sha256",
+    "intent",
+    "approved_at",
+    "authorization_source"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cyber-review.authorization.v1"
+    },
+    "scope_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "intent": {
+      "const": "observe_included_local_fixture"
+    },
+    "approved_at": {
+      "type": "integer"
+    },
+    "authorization_source": {
+      "const": "explicit_local_fixture_cli_flag"
+    }
+  },
+  "additionalProperties": false
+}

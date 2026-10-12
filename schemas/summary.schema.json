@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/cyber-review/summary.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "text",
+    "completed_cases",
+    "expected_cases",
+    "problems",
+    "operator_closed",
+    "security_certification",
+    "model_commentary_authoritative"
+  ],
+  "properties": {
+    "schema": {
+      "const": "cyber-review.summary.v1"
+    },
+    "status": {
+      "enum": [
+        "recorded_synthetic_checks_passed",
+        "review_incomplete_evidence"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "completed_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "header_presence",
+          "anonymous_denial"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "expected_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "header_presence",
+          "anonymous_denial"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operator_closed": {
+      "const": false
+    },
+    "security_certification": {
+      "const": false
+    },
+    "model_commentary_authoritative": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}

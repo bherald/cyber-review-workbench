@@ -1,0 +1,5 @@
+{
+  "schema": "cyber-review.fixture.v1",
+  "candidate": {"security_headers": true, "unauthenticated_status": 403},
+  "clean_control": {"security_headers": true, "unauthenticated_status": 403}
+}
